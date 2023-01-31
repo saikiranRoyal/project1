@@ -24,7 +24,7 @@ submit(){
       this._router.navigateByUrl("/dashboard")
     },
     (err:any)=>{
-      alert("server error")
+      alert("Inavlid credentials")
     }
   )
 }
