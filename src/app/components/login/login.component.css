@@ -37,3 +37,6 @@ input{
 .error{
     color:white;
 }
+@media (max-width: 767px){
+    .child{width:90%;}
+}
