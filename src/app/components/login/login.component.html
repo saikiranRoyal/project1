@@ -1,14 +1,23 @@
 <div class="parent">
     <div class="child">
-        <form action="" >
+        <form action="" [formGroup]="LoginForm" >
             <label class="label" for="">email:</label>
-            <input type="text">
+            <input type="text" formControlName="email">
+            <div class="error" *ngIf="LoginForm.get('email')?.touched && LoginForm.get('email')?.invalid">
+               <p *ngIf="LoginForm.get('email')?.errors?.['required']">Email is required</p>
+               <p *ngIf="LoginForm.get('email')?.errors?.['email']">Email should contain @</p>
+
+            </div>
             <br>
             <label class="label" for="">password:</label>
-            <input type="text">
+            <input type="password" formControlName="password">
+            <div class="error" *ngIf="LoginForm.get('password')?.touched && LoginForm.get('password')?.invalid">
+                <p *ngIf="LoginForm.get('password')?.errors?.['required']"> passsword must be there</p>
+                <p *ngIf="LoginForm.get('password')?.errors?.['minlength']"> passsword must be 5 characters</p>
+            </div>
             <br>
             <div class="btn">
-            <button class="btn btn-success">login</button>
+            <button class="btn btn-success" (click)="submit()">login</button>
             </div>
         </form>
     </div>
