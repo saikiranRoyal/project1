@@ -29,9 +29,16 @@ export class CreatestudentsComponent {
       ),
       // creating form array
       educationArray:new FormArray([]),
-      type:new FormControl(),
-      company:new FormControl(),
-      sourcetype:new FormControl()
+      company:new FormGroup(
+        {
+          name:new FormControl(),
+          location:new FormControl(),
+          package:new FormControl(),
+          offerDate:new FormControl()
+        }
+      )
+
+      
 
     }
    )

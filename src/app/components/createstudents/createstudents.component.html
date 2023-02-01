@@ -53,19 +53,33 @@
                 </div>
             </div>
             <br>
-            <div>
+            <div class=" mb-2">
             
             <button class="btn btn-primary" (click)="add()" (click)="i = i + 1" [disabled]="i === skills.length" > Add Education</button>
             
             </div>
         </div>
 
-        <div class="text-center">
-            <button class="btn btn-success" (click)="submit()">submit</button>
-
+       
+        
+        <div formGroupName="company">
+            <label for="">name</label>
+            <input type="text" formControlName="name">
+            <br>
+            <label for="">location</label>
+            <input type="text" formControlName="location">
+            <br>
+            <label for="">package</label>
+            <input type="text" formControlName="package">
+            <br>
+            <label for="">offerDate</label>
+            <input type="text" formControlName="offerDate">
         </div>
-     
 
+
+        <div class="text-center mb-2 mt-2">
+            <button class="btn btn-success" (click)="submit()">submit</button>
+        </div>
 
     </form>
  
