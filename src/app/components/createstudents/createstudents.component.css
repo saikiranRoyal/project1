@@ -1,0 +1,18 @@
+label{
+    width: 80px;
+    
+}
+.form-container{
+    background-color:white;
+    border-radius: 20px;
+    text-align: center;
+    width:40%;
+    padding: 20px;
+    
+}
+input{
+    background-color: rgb(113, 141, 252);
+    border:0px;
+    border-radius: 5px;
+    box-shadow: 0px 0px black 5px;
+}

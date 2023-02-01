@@ -1,1 +1,19 @@
-<p>createstudents works!</p>
+<div class="form-container">
+    <form action="" [formGroup]="createstudentForm">
+    <label for="">name:</label>
+    <input type="text" formControlName="name">
+    <br>
+    <label for="">gender:</label>
+    <input type="text" formControlName="gender">
+    <br>
+    <label for="">mobile:</label>
+    <input type="text" formControlName="mobile">
+    <br>
+    <label for="">email:</label>
+    <input type="text" formControlName="email">
+    <br>
+    <label for="">batch:</label>
+    <input type="text" formControlName="batch">
+</form>
+<button class="btn btn-success" (click)="submit()">submit</button>
+</div>
