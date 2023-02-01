@@ -14,6 +14,9 @@
     width:70%;
     height:100vh;
     background-color: indigo;
+    justify-content: center;
+    display: flex;
+    align-items: center;
 }
 h4:hover{
     background-color:rgb(220, 237, 118);
@@ -38,8 +41,19 @@ h4{
     justify-content: center;
     align-items: center;
 }
-@media (max-width: 767px){
+@media (max-width: 768px){
     .left,.right{
         flex: 1;
+    }
+}
+@media (max-width:768px) {
+    .parent{
+        flex-direction: column;
+    }
+    .right{
+        width: 100%;
+    }
+    .left{
+        width: 100%;
     }
 }
