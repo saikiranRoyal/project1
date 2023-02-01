@@ -60,5 +60,8 @@ export class CreatestudentsComponent {
    submit(){
     console.log(this.createstudentForm.value)
    }
+   delete(i:number){
+    this.educationFormArray.removeAt(i)
+   }
 
 }
