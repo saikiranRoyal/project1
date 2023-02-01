@@ -38,7 +38,8 @@
         <div formArrayName="educationArray">
             <div *ngFor="let education of educationFormArray.controls ; let i =index">
                 <div formGroupName="{{i}}">
-                    <h1>Education details {{i+1}}</h1>
+                    
+                    <h1>Skill: {{skills[i]}}</h1>
                     <label for="">qualification:</label>
                     <input type="text" formControlName="qualification">
                      <br>
@@ -53,7 +54,7 @@
             <br>
             <div>
             
-            <button class="btn btn-primary" (click)="add()"> Add Education</button>
+            <button class="btn btn-primary" (click)="add()" (click)="i = i + 1" [disabled]="i === skills.length" > Add Education</button>
             
             </div>
         </div>
@@ -62,6 +63,8 @@
             <button class="btn btn-success" (click)="submit()">submit</button>
 
         </div>
+     
+
 
     </form>
  

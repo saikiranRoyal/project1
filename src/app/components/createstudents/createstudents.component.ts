@@ -7,6 +7,9 @@ import { FormArray, FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./createstudents.component.css']
 })
 export class CreatestudentsComponent {
+  
+  public i :number= 0
+  public skills:any = ['html','css','javascript','angular','typescript']
    public createstudentForm:FormGroup=new FormGroup(
     {
       name:new FormControl(),
@@ -25,16 +28,20 @@ export class CreatestudentsComponent {
         }
       ),
       // creating form array
-      educationArray:new FormArray([])
+      educationArray:new FormArray([]),
+      type:new FormControl(),
+      company:new FormControl(),
+      sourcetype:new FormControl()
+
     }
    )
 
-
+  //  declaring form array as variable
    get educationFormArray(){
       return this.createstudentForm.get('educationArray') as FormArray
    }
 
-
+  
    add(){
       this.educationFormArray.push(
         new FormGroup(
@@ -53,4 +60,5 @@ export class CreatestudentsComponent {
    submit(){
     console.log(this.createstudentForm.value)
    }
+
 }
