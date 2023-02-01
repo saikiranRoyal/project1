@@ -15,6 +15,7 @@
         <br>
         <label for="">batch:</label>
         <input type="text" formControlName="batch">
+        <!-- nested form -->
 
         <div formGroupName="address">
             <label for="">city:</label>
@@ -33,7 +34,37 @@
             <input type="text" formControlName="pincode">
         
         </div>
+        <!-- form array -->
+        <div formArrayName="educationArray">
+            <div *ngFor="let education of educationFormArray.controls ; let i =index">
+                <div formGroupName="{{i}}">
+                    <h1>Education details {{i+1}}</h1>
+                    <label for="">qualification:</label>
+                    <input type="text" formControlName="qualification">
+                     <br>
+                    <label for="">year:</label>
+                    <input type="text" formControlName="year">
+                    <br>
+                    <label for="">percentage:</label>
+                    <input type="text" formControlName="percentage">
+                    <br>
+                </div>
+            </div>
+            <br>
+            <div>
+            
+            <button class="btn btn-primary" (click)="add()"> Add Education</button>
+            
+            </div>
+        </div>
+
+        <div class="text-center">
+            <button class="btn btn-success" (click)="submit()">submit</button>
+
+        </div>
+
     </form>
-    <button class="btn btn-success" (click)="submit()">submit</button>
+ 
+
     </div>
 </div>
