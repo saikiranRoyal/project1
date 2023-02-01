@@ -77,9 +77,31 @@
         </div>
 
 
-        <div class="text-center mb-2 mt-2">
+        
+        <!-- dynamic forms -->
+
+        <label for="">Sourcetype</label>
+        <input type="radio" id="" name="Sourcetype" value="Direct" formControlName="Sourcetype">
+        <label for="">Direct</label>
+        <input type="radio" id="" name="Sourcetype" value="Refer" formControlName="Sourcetype">
+        <label for="">Refer</label>
+
+         <div *ngIf="createstudentForm.get('Sourcetype')?.value== 'Direct'">
+            <input type="radio" value="social media" formControlName="sourceFrom">
+            <label for="">social media</label>
+            <input type="radio" value="office"  formControlName="sourceFrom">
+            <label for="">Office</label>
+         </div>
+
+         <div *ngIf="createstudentForm.get('Sourcetype')?.value== 'Refer'">
+            <label for="">Referal Name</label>
+            <input type="text" value="">
+         </div>
+        
+         <div class="text-center mb-2 mt-2">
             <button class="btn btn-success" (click)="submit()">submit</button>
         </div>
+        
 
     </form>
  

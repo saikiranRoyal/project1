@@ -29,6 +29,15 @@ export class CreatestudentsComponent {
       ),
       // creating form array
       educationArray:new FormArray([]),
+       
+      // dynamic array
+      Sourcetype:new FormControl(),
+      sourceFrom:new FormControl(),
+      referralName:new FormControl(),
+      
+
+      
+
       company:new FormGroup(
         {
           name:new FormControl(),
