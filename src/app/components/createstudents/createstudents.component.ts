@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormArray, FormControl, FormGroup } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-createstudents',
@@ -12,19 +12,19 @@ export class CreatestudentsComponent {
   public skills:any = ['html','css','javascript','angular','typescript']
    public createstudentForm:FormGroup=new FormGroup(
     {
-      name:new FormControl(),
-      gender:new FormControl(),
-      mobile:new FormControl(),
-      email:new FormControl(),
-      batch:new FormControl(),
+      name:new FormControl(null, [Validators.required]),
+      gender:new FormControl(null,[Validators.required]),
+      mobile:new FormControl(null,[Validators.required, Validators.minLength(10)]),
+      email:new FormControl(null,[Validators.required]),
+      batch:new FormControl(null,[Validators.required]),
       // Nested form
       address:new FormGroup(
         {
           city:new FormControl(),
           mandal:new FormControl(),
-          district:new FormControl(),
+          district:new FormControl(null, [Validators.required]),
           state:new FormControl(),
-          pincode:new FormControl(),
+          pincode:new FormControl(null, [Validators.required, Validators.minLength(6)]),
         }
       ),
       // creating form array
@@ -64,7 +64,7 @@ export class CreatestudentsComponent {
           {
             qualification:new FormControl(),
             year:new FormControl(),
-            percentage:new FormControl(),
+            percentage:new FormControl(null, [Validators.required, Validators.min(0), Validators.max(100)]),
 
 
           }

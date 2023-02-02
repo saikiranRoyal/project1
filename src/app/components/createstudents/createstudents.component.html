@@ -3,18 +3,47 @@
         <form action="" [formGroup]="createstudentForm">
         <label for="">name:</label>
         <input type="text" formControlName="name">
+        <!--  custom validations -->
+        <div class="error" *ngIf="createstudentForm.get('name')?.touched && createstudentForm.get('name')?.invalid">
+            <p *ngIf="createstudentForm.get('name')?.errors?.['required']">name is required</p>
+        </div>
         <br>
         <label for="">gender:</label>
         <input type="text" formControlName="gender">
+
+                <!--  custom validations -->
+
+        <div class="error" *ngIf="createstudentForm.get('gender')?.touched && createstudentForm.get('gender')?.invalid">
+            <p *ngIf="createstudentForm.get('gender')?.errors?.['required']">gender required</p>
+        </div>
         <br>
         <label for="">mobile:</label>
         <input type="text" formControlName="mobile">
+
+                <!--  custom validations -->
+
+        <div class="error" *ngIf="createstudentForm.get('mobile')?.touched && createstudentForm.get('mobile')?.invalid">
+            <p *ngIf="createstudentForm.get('mobile')?.errors?.['required']">mobile required</p>
+            <p *ngIf="createstudentForm.get('mobile')?.errors?.['minlength']">mobile number should be 10 digits</p>
+        </div>
         <br>
         <label for="">email:</label>
         <input type="text" formControlName="email">
+
+                <!--  custom validations -->
+
+        <div class="error" *ngIf="createstudentForm.get('email')?.touched && createstudentForm.get('email')?.invalid">
+            <p *ngIf="createstudentForm.get('email')?.errors?.['required']">email required</p>
+        </div>
         <br>
         <label for="">batch:</label>
         <input type="text" formControlName="batch">
+
+                <!--  custom validations -->
+
+        <div class="error" *ngIf="createstudentForm.get('batch')?.touched && createstudentForm.get('batch')?.invalid">
+            <p *ngIf="createstudentForm.get('batch')?.errors?.['required']">batch required</p>
+        </div>
         <!-- nested form -->
 
         <div formGroupName="address">
@@ -26,12 +55,25 @@
             <br>
             <label for="">district:</label>
             <input type="text" formControlName="district">
+
+                    <!--  custom validations -->
+
+            <div class="error" *ngIf="createstudentForm.get('address.district')?.touched && createstudentForm.get('address.district')?.invalid">
+                <p *ngIf="createstudentForm.get('address.district')?.errors?.['required']">district required</p>
+            </div>
             <br>
             <label for="">state:</label>
             <input type="text" formControlName="state">
             <br>
             <label for="">pincode:</label>
             <input type="text" formControlName="pincode">
+
+                    <!--  custom validations -->
+
+            <div class="error" *ngIf="createstudentForm.get('address.pincode')?.touched && createstudentForm.get('address.pincode')?.invalid">
+                <p *ngIf="createstudentForm.get('address.pincode')?.errors?.['required']">pincode required</p>
+                <p *ngIf="createstudentForm.get('address.pincode')?.errors?.['minlength']">pincode should be 6 digits</p>
+            </div>
         
         </div>
         <!-- form array -->
@@ -48,6 +90,12 @@
                     <br>
                     <label for="">percentage:</label>
                     <input type="text" formControlName="percentage">
+                    
+                    <div class="error" *ngIf="createstudentForm.controls[i].get('percentage')?.touched && createstudentForm.controls[i].get('percentage')?.invalid">
+                        <p *ngIf="createstudentForm.get('educationArray.percentage')?.errors?.['required']">percentage required</p>
+                        <p *ngIf="createstudentForm.get('educationArray.percentage')?.errors?.['min']">percentage should be 0 t0 100</p>
+                    </div>
+                     
                     <br>
                     <button class="btn btn-danger" (click)="delete(i)">delete</button>
                 </div>
