@@ -17,6 +17,7 @@
     /* justify-content: center;
     display: flex;
     align-items: center; */
+    overflow: auto;
 }
 h4:hover{
     background-color:rgb(220, 237, 118);

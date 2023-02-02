@@ -12,4 +12,8 @@ export class StudentService {
   createstudent(data:any):Observable<any>{
     return this._httpclient.post('https://62b9299dff109cd1dc8ca34f.mockapi.io/students',data)
   }
+
+  studenttable():Observable<any>{
+    return this._httpclient.get('https://62b9299dff109cd1dc8ca34f.mockapi.io/students')
+  }
 }
