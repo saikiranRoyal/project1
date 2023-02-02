@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { StudentService } from 'src/app/services/student.service';
 
 @Component({
   selector: 'app-createstudents',
@@ -10,6 +11,8 @@ export class CreatestudentsComponent {
   
   public i :number= 0
   public skills:any = ['html','css','javascript','angular','typescript']
+
+  constructor(private _service:StudentService){}
    public createstudentForm:FormGroup=new FormGroup(
     {
       name:new FormControl(null, [Validators.required]),
@@ -75,9 +78,20 @@ export class CreatestudentsComponent {
 
    submit(){
     console.log(this.createstudentForm.value)
+
+    this._service.createstudent(this.createstudentForm.value).subscribe(
+      (data:any) => {
+        alert('student details updated')
+      },
+      (err:any)=>{
+        alert('not created')
+      }
+    )
+
    }
    delete(i:number){
     this.educationFormArray.removeAt(i)
    }
 
+   
 }
