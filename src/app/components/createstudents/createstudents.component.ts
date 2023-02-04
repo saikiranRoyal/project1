@@ -92,6 +92,6 @@ export class CreatestudentsComponent {
    delete(i:number){
     this.educationFormArray.removeAt(i)
    }
-
    
+  
 }

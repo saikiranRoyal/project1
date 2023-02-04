@@ -35,6 +35,9 @@ export class AllstudentsComponent {
       }
     )
   }
+
+
+  // pagination
   page(pageNo:number){
     this._service.getPagedStudents(pageNo).subscribe(
       (data:any)=>{
@@ -44,5 +47,20 @@ export class AllstudentsComponent {
         alert('pagination failed')
       }
     )
+  }
+
+  // sorting
+
+  public column:any="";
+  public order:any="";
+  sortstudents(){
+   this._service.getSortedStudents(this.column,this.order).subscribe(
+     (data:any)=>{
+       this.studentdata=data;
+     },
+     (err:any)=>{
+      alert("sorting error")
+     }
+   )
   }
 }

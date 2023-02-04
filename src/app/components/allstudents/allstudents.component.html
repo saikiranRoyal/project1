@@ -1,4 +1,14 @@
-<!-- <h1>{{page1}}</h1> -->
+<!-- sorting  -->
+<select name="" id="" [(ngModel)]="column">
+    <option value="name">name</option>
+    <option value="batch">batch</option>
+</select>
+
+<select name="" id=""[(ngModel)]="order">
+    <option value="asc">ascending</option>
+    <option value="desc">descending</option>
+</select>
+<button class="btn btn-primary" (click)="sortstudents()">sort</button>
 
 <table class=" tbb table table-dark table-hover table-bordered table-striped">
     <thead>
