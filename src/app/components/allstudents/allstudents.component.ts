@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { StudentService } from 'src/app/services/student.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class AllstudentsComponent {
   public page1 : any = '';
   public j:number[]=[];
   
-  constructor(private _service:StudentService){
+  constructor(private _service:StudentService, private _router:Router){
     this._service.studenttable().subscribe(
       (data:any)=>{
         // putting slice to data as data.slice(1,10) to display 10 rows at startload of page
@@ -75,5 +76,8 @@ export class AllstudentsComponent {
         alert("filtering failed")
       }
     )
+  }
+  view(id:string){
+    this._router.navigateByUrl("/dashboard/studentdetails/"+id)
   }
 }

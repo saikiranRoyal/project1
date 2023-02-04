@@ -38,6 +38,9 @@
             <td>{{student.state}}</td>
             <td>{{student.company}}</td>
             <td>{{student.Package}}</td>
+            <td>
+                <button class="btn btn-primary" (click)="view(student.id)">view</button>
+            </td>
         </tr>
     </tbody>
 </table>
