@@ -16,4 +16,8 @@ export class StudentService {
   studenttable():Observable<any>{
     return this._httpclient.get('https://62b9299dff109cd1dc8ca34f.mockapi.io/students')
   }
+
+  getPagedStudents(page:number):Observable<any>{
+    return this._httpclient.get('https://62b9299dff109cd1dc8ca34f.mockapi.io/students?limit=10&page='+page)
+  }
 }

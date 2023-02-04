@@ -1,8 +1,11 @@
+<!-- <h1>{{page1}}</h1> -->
+
 <table class=" tbb table table-dark table-hover table-bordered table-striped">
     <thead>
        <tr >
         <th>name</th>
         <th>gender</th>
+        <th>image</th>
         <th>phone</th>
         <th>batch</th>
         <th>from(district-state),</th>
@@ -14,18 +17,22 @@
         <tr *ngFor="let student of studentdata">
             <td>{{student.name}}</td>
             <td>{{student.gender}}</td>
+            <td><img src="{{student.avatar}}" alt="" height="50" width:50></td>
             <td>{{student.mobile}}</td>
             <td>{{student.batch}}</td>
             <td>{{student.state}}</td>
-            <td>{{student.companyName}}</td>
+            <td>{{student.company}}</td>
             <td>{{student.Package}}</td>
-
-
-
-
-
-            
         </tr>
     </tbody>
 </table>
+<ul class="pagination">
+    <li *ngFor="let item of j" class="page-item" (click)="page(item + 1)"><a class="page-link" >{{item+1}}</a></li>
+    <!-- <li (click)="page(1)" class="page-item"><a class="page-link">1</a></li>
+    <li (click)="page(2)" class="page-item"><a class="page-link" >2</a></li>
+    <li (click)="page(3)" class="page-item"><a class="page-link" >3</a></li>
+    <li (click)="page(4)" class="page-item"><a class="page-link">4</a></li>
+    <li (click)="page(5)" class="page-item"><a class="page-link" >5</a></li>
+    <li (click)="page(6)" class="page-item"><a class="page-link" >6</a></li> -->
+  </ul>
 
