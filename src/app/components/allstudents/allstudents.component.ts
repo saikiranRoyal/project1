@@ -63,4 +63,17 @@ export class AllstudentsComponent {
      }
    )
   }
+
+  // filter students
+  public term:string="";
+  filter(){
+    this._service.getfilterstudents(this.term).subscribe(
+      (data:any)=>{
+        this.studentdata=data;
+      },
+      (err:any)=>{
+        alert("filtering failed")
+      }
+    )
+  }
 }
