@@ -16,7 +16,8 @@ export class AllstudentsComponent {
   constructor(private _service:StudentService){
     this._service.studenttable().subscribe(
       (data:any)=>{
-        this.studentdata=data;
+        // putting slice to data as data.slice(1,10) to display 10 rows at startload of page
+        this.studentdata=data.slice(0,10);
         //for automatic pagination
         this.keys = Object.keys(data)
         // console.log(this.keys.length)
