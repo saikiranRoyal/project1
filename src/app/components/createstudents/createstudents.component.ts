@@ -123,5 +123,5 @@ export class CreatestudentsComponent {
     this.educationFormArray.removeAt(i)
    }
    
-  
+   
 }

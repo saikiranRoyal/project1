@@ -84,6 +84,18 @@ export class AllstudentsComponent {
   // edit 
 
   edit(id:string){
-         this._router.navigateByUrl("/dashboard/edit-student/"+id)
+    this._router.navigateByUrl("/dashboard/edit-student/"+id)
+  }
+   
+  delete(id:string){
+    this._service.delete(id).subscribe(
+      (data:any)=>{
+        alert("deleted successfully")
+        location.reload();
+      },
+      (err:any)=>{
+        alert('server error')
+      }
+    )
   }
 }

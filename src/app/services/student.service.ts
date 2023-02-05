@@ -36,4 +36,8 @@ export class StudentService {
   updatevehicle(data:any, id:string):Observable<any>{
     return this._httpclient.put('https://62b9299dff109cd1dc8ca34f.mockapi.io/students/'+id,data)
   }
+
+  delete(id:string):Observable<any>{
+    return this._httpclient.delete('https://62b9299dff109cd1dc8ca34f.mockapi.io/students/'+id)
+  }
 }
