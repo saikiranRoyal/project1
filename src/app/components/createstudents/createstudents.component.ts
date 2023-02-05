@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { StudentService } from 'src/app/services/student.service';
 
 @Component({
@@ -11,8 +12,27 @@ export class CreatestudentsComponent {
   
   public i :number= 0
   public skills:any = ['html','css','javascript','angular','typescript']
+  public isedit:boolean=false;
+  public id:string="";
+  constructor(private _service:StudentService, private _activatedRouter:ActivatedRoute){
+    _activatedRouter.params.subscribe(
+    (data:any)=>{
+      // if condition for edit and path params
+      if(data.id){
+        this.isedit=true;
+        this.id=data.id;
+      }
+       
+      this._service.viewstudents(data.id).subscribe(
+        (data2:any)=>{
+          // to attach the data to create student form we use patchyValue
+          this.createstudentForm.patchValue(data2);
+        }
+      )
 
-  constructor(private _service:StudentService){}
+    }
+    )
+  }
    public createstudentForm:FormGroup=new FormGroup(
     {
       name:new FormControl(null, [Validators.required]),
@@ -78,7 +98,17 @@ export class CreatestudentsComponent {
 
    submit(){
     console.log(this.createstudentForm.value)
-
+    
+    if(this.isedit){
+      this._service.updatevehicle(this.createstudentForm.value, this.id).subscribe(
+        (data:any)=>{
+          alert("updated successfully")
+        },
+        (err:any)=>{
+          alert("server error update failed")
+        }
+      )
+    }
     this._service.createstudent(this.createstudentForm.value).subscribe(
       (data:any) => {
         alert('student details updated')

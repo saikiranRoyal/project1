@@ -23,9 +23,7 @@
         <th>image</th>
         <th>phone</th>
         <th>batch</th>
-        <th>from(district-state),</th>
-        <th>companyName</th>
-        <th>Package</th>
+        <th>actions</th>
        </tr>
     </thead>
     <tbody>
@@ -35,12 +33,16 @@
             <td><img src="{{student.avatar}}" alt="" height="50" width:50></td>
             <td>{{student.mobile}}</td>
             <td>{{student.batch}}</td>
-            <td>{{student.state}}</td>
-            <td>{{student.company}}</td>
-            <td>{{student.Package}}</td>
+            
             <td>
-                <button class="btn btn-primary" (click)="view(student.id)">view</button>
+                <button class="btn btn-primary " (click)="view(student.id)" style="margin: 3px;">view</button>
+                
+
+                <button class="btn btn-primary" (click)="edit(student.id)" style="margin: 3px;">edit</button>
+
             </td>
+            
+            
         </tr>
     </tbody>
 </table>

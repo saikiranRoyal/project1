@@ -80,4 +80,10 @@ export class AllstudentsComponent {
   view(id:string){
     this._router.navigateByUrl("/dashboard/studentdetails/"+id)
   }
+
+  // edit 
+
+  edit(id:string){
+         this._router.navigateByUrl("/dashboard/edit-student/"+id)
+  }
 }

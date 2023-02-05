@@ -1,4 +1,5 @@
-    <div class="parent">
+   <h1 style="color: white; text-align: center;">{{ isedit ? 'Edit-student':'Create-student'}}</h1>
+   <div class="parent">
     <div class="form-container">
         <form action="" [formGroup]="createstudentForm">
         <label for="">name:</label>
@@ -147,7 +148,7 @@
          </div>
         
          <div class="text-center mb-2 mt-2">
-            <button class="btn btn-success" (click)="submit()">submit</button>
+            <button class="btn btn-success" (click)="submit()">{{ isedit ? 'update': 'submit'}}</button>
         </div>
         
 

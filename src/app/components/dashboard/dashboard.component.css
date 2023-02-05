@@ -6,12 +6,12 @@
     align-items: center;
 }
 .left{
-    width:30%;
+    width:20%;
     height:100vh;
     background-color: gray;
 }
 .right{
-    width:70%;
+    width:80%;
     height:100vh;
     background-color: indigo;
     /* justify-content: center;
